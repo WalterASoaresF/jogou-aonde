@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ProcurarJogador from './ProcurarJogador';
 
 function EncontrarJogador() {
     const jogadores = [
@@ -14,8 +15,12 @@ function EncontrarJogador() {
         {nome: "Thiago Silva", time: "Fluminense"},
         {nome: "Roberto Carlos", time: "Corinthians"}
     ]
+    
+    const [nomeBuscado, setNomeBuscado] = useState("");
     const [nomejogador, setNomejogador] = useState('');
-    const jogadorEncontrado = jogadores.find(jogador => jogador.nome.trim().toLowerCase() === nomejogador.trim().toLowerCase())
+    const jogadorEncontrado = jogadores.find(jogador => jogador.nome.trim().toLowerCase() === nomeBuscado.trim().toLowerCase())
+    const [Botaoapertado, setBotaoapertado] = useState(false);
+
 
     return (
         <div>  
@@ -24,13 +29,12 @@ function EncontrarJogador() {
                 placeholder="Digite o nome do jogador"  
                 value={nomejogador}
                 onChange={(e) => setNomejogador(e.target.value)}/>
-            <div>
-                {jogadorEncontrado ? (
-                    <p>{jogadorEncontrado.nome} jogou no time {jogadorEncontrado.time}.</p>
-                ) : (
-                    <p>Jogador não encontrado.</p>
-                )}
-            </div>
+
+            <button className= "btn_procurarJogador" onClick={() =>{
+             setNomeBuscado(nomejogador); 
+                setBotaoapertado(true);
+                }}>Buscar</button>
+            {Botaoapertado ? (<ProcurarJogador jogadorEncontrado={jogadorEncontrado} />) : null}
         </div>
     )
 

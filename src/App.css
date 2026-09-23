@@ -60,7 +60,6 @@ input:focus {
 }
 
 .App > div > div {
-  margin-top: 22px;
   min-height: 58px;
   padding: 3px 16px;
   border-radius: 9px;
@@ -71,6 +70,16 @@ input:focus {
   margin: 14px 0;
   color: #34527b;
   font-weight: 600;
+}
+.btn_procurarJogador{
+  margin: 20px 0; 
+  width: 30%;
+  height: 4vh;
+  border-radius: 5px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+
 }
 
 @media (max-width: 480px) {
